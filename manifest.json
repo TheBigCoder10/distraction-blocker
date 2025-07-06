@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Streaming Video Blocker",
+    "version": "1.0",
+    "description": "Blocks clicking and autoplay on video platforms like YouTube, Netflix, Hulu, and more.",
+    "permissions": ["scripting"],
+    "host_permissions": [
+      "*://*.youtube.com/*",
+      "*://*.netflix.com/*",
+      "*://*.hulu.com/*",
+      "*://*.primevideo.com/*",
+      "*://*.disneyplus.com/*",
+      "*://*.hbomax.com/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "*://*.youtube.com/*",
+          "*://*.netflix.com/*",
+          "*://*.hulu.com/*",
+          "*://*.primevideo.com/*",
+          "*://*.disneyplus.com/*",
+          "*://*.hbomax.com/*"
+        ],
+        "js": ["content.js"]
+      }
+    ],
+    "icons": {
+      "48": "icon.png"
+    }
+  }
+  
