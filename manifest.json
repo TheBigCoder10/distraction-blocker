@@ -21,6 +21,7 @@
           "*://*.primevideo.com/*",
           "*://*.disneyplus.com/*",
           "*://*.hbomax.com/*"
+          
         ],
         "js": ["content.js"]
       }
