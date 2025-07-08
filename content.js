@@ -1,14 +1,12 @@
 function isBlockedTime() {
   const now = new Date();
-  const hourEST = parseInt(new Intl.DateTimeFormat('en-US', {
-    timeZone: 'America/New_York',
-    hour: 'numeric',
-    hour12: false
-  }).format(now), 10);
-  return !(hourEST >= 20 || hourEST < 8);
+  const hour = now.getHours(); 
+  return hour >= 8 && hour < 20; 
 }
 
 if (isBlockedTime()) {
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+console.log(`User's current timezone is ${timezone}`);
   document.documentElement.innerHTML = `
     <style>
       body {
@@ -25,8 +23,9 @@ if (isBlockedTime()) {
     </style>
     <body>
       <div>
-        <h1>🚫 Blocked Until 8:00 PM EST</h1>
-        <p>Use this time wisely. You’ll be back at 8PM.</p>
+        <h1>🚫 Blocked Until 8:00 PM</h1>
+        <p>Use this time wisely. You’ll be back at 8PM local time.</p>
+        <p> Current timezone: ${timezone} </p>
       </div>
     </body>
   `;
