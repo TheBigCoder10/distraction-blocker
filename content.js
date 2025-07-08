@@ -5,7 +5,7 @@ function isBlockedTime() {
     hour: 'numeric',
     hour12: false
   }).format(now), 10);
-  return !(hourEST >= 20 || hourEST < 8); // Block 8AM–7:59PM EST
+  return !(hourEST >= 20 || hourEST < 8);
 }
 
 if (isBlockedTime()) {
